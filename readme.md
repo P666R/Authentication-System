@@ -104,14 +104,25 @@
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/webmobi-assignment.git
-cd webmobi-assignment
+git clone https://github.com/P666R/Authentication-System.git
+cd Authentication-System
 npm install
 ```
 
 Configure the database:
 
     Update the database configuration in config/config.js.
+
+Set up environment variables:
+
+    PORT=
+    NODE_ENV=
+    DB_USERNAME=
+    DB_PASSWORD=
+    DB_NAME=
+    DB_HOST=
+    DB_PORT=
+    JWT_SECRET=
 
 Create the database:
 
