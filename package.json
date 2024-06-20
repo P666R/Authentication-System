@@ -7,7 +7,8 @@
     "dev": "nodemon app.js",
     "test": "jest --coverage",
     "test:unit": "jest --coverage --testPathPattern=tests/unit",
-    "test:integration": "jest --coverage --testPathPattern=tests/integration"
+    "test:integration": "jest --coverage --testPathPattern=tests/integration",
+    "setup-db": "node scripts/createDatabase.js"
   },
   "author": "PRoy",
   "license": "ISC",
