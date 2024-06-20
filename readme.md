@@ -9,12 +9,13 @@
 
 ## Features
 
-- **User Registration:** Allows users to register with a unique username, email, and password. Handles duplicate email errors.
+- **User Registration:** Allows users to register with a unique username, email, and password.
 - **User Login:** Authenticates users with email and password, issuing a JWT for subsequent requests.
 - **Profile Retrieval:** Retrieves user profile information using a valid JWT.
-- **Error Handling:** Provides meaningful error messages for registration, login, and profile retrieval failures.
+- **Error Handling:** Provides meaningful error messages for user-friendly error handling.
 - **Database Integration:** Utilizes MySQL database for user data storage and retrieval.
 - **Middleware:** Includes authentication middleware for token validation and error middleware for handling exceptions.
+- **Validation:** Provides request validation for user registration login and profile retrieval.
 
 ## Endpoints
 
