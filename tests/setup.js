@@ -28,16 +28,36 @@ beforeAll((done) => {
 });
 
 afterAll((done) => {
-  // Clean up the database
-  const dropDatabase = `DROP DATABASE ${db.database};`;
+  // Check if the database exists before attempting to drop it
+  const checkDatabaseExists = `
+    SELECT SCHEMA_NAME 
+    FROM INFORMATION_SCHEMA.SCHEMATA 
+    WHERE SCHEMA_NAME = '${db.database}';
+  `;
   exec(
-    `mysql -u ${db.username} -p${db.password} -e "${dropDatabase}"`,
+    `mysql -u ${db.username} -p${db.password} -e "${checkDatabaseExists}"`,
     (error, stdout, stderr) => {
       if (error) {
-        console.error(`Error dropping database: ${stderr}`);
+        console.error(`Error checking database existence: ${stderr}`);
         done(error);
+      } else if (stdout.includes(db.database)) {
+        // Database exists, proceed with dropping it
+        const dropDatabase = `DROP DATABASE ${db.database};`;
+        exec(
+          `mysql -u ${db.username} -p${db.password} -e "${dropDatabase}"`,
+          (error, stdout, stderr) => {
+            if (error) {
+              console.error(`Error dropping database: ${stderr}`);
+              done(error);
+            } else {
+              console.log('Database cleanup completed.');
+              done();
+            }
+          }
+        );
       } else {
-        console.log('Database cleanup completed.');
+        // Database does not exist
+        console.log('Database does not exist, no cleanup needed.');
         done();
       }
     }

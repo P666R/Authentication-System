@@ -9,11 +9,9 @@ async function createDatabaseAndTables() {
     port: db.port,
   });
 
-  // Create the database if it does not exist
   await connection.query(`CREATE DATABASE IF NOT EXISTS \`${db.database}\`;`);
   await connection.query(`USE \`${db.database}\`;`);
 
-  // Create the users table if it does not exist
   const createUsersTable = `
     CREATE TABLE IF NOT EXISTS users (
       id INT AUTO_INCREMENT PRIMARY KEY,
