@@ -20,7 +20,7 @@
 
 ### User Registration
 
-- **URL:** `api/v1/auth/register`
+- **URL:** `/api/v1/auth/register`
 - **Method:** `POST`
 - **Request Body:**
 
@@ -45,7 +45,7 @@
 
 ### User Login
 
-- **URL:** `/login`
+- **URL:** `/api/v1/auth/login`
 - **Method:** `POST`
 - **Request Body:**
 
@@ -70,7 +70,7 @@
 
 ### User Profile
 
-- **URL:** `/profile`
+- **URL:** `/api/v1/auth/profile`
 - **Method:** `GET`
 - **Headers:**
 
